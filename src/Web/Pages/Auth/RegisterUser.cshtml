@@ -1,12 +1,12 @@
 @page
 @model RegisterUserModel
 @{
-    ViewData["Title"] = "Registration";
+    ViewData["Title"] = "Регистрация";
 }
 
 <h1 class="mb-3">@ViewData["Title"]</h1>
 
-<p class="mb-3">Register as a user to purchase event tickets</p>
+<p class="mb-3">Зарегистрируйтесь как пользователь для покупки билетов</p>
 
 @if (!string.IsNullOrEmpty(Model.ErrorMessage))
 {
@@ -18,38 +18,38 @@
 
 <form method="post" class="mb-3">
     <div class="mb-3">
-        <label class="form-label" asp-for="Login">Login</label>
+        <label class="form-label" asp-for="Login">Логин</label>
         <input type="text" class="form-control" asp-for="Login" />
         <span class="text-danger" asp-validation-for="Login"></span>
     </div>
     
     <div class="mb-3">
-        <label class="form-label" asp-for="Name">Name</label>
+        <label class="form-label" asp-for="Name">Имя</label>
         <input type="text" class="form-control" asp-for="Name" />
         <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     
     <div class="mb-3">
-        <label class="form-label" asp-for="Password">Password</label>
+        <label class="form-label" asp-for="Password">Пароль</label>
         <input type="password" class="form-control" asp-for="Password" />
         <span class="text-danger" asp-validation-for="Password"></span>
     </div>
     
     <div class="mb-3">
-        <label class="form-label" asp-for="ConfirmPassword">Confirm password</label>
+        <label class="form-label" asp-for="ConfirmPassword">Повторите пароль</label>
         <input type="password" class="form-control" asp-for="ConfirmPassword" />
         <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
     </div>
     
     <div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
     </div>
 </form>
 
 <div class="mb-3">
-    <a asp-area="" asp-page="/Auth/RegisterOrganization">Register as an organization</a>
+    <a asp-area="" asp-page="/Auth/RegisterOrganization">Зарегистрироваться как организация</a>
 </div>
 
 <div>
-    <a asp-area="" asp-page="/Auth/Login">Login</a>
+    <a asp-area="" asp-page="/Auth/Login">Войти</a>
 </div>
