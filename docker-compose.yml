@@ -1,0 +1,108 @@
+version: '3.4'
+
+services:
+  web:
+    container_name: web
+    image: web:latest
+    build:
+      context: ./src
+      dockerfile: ./Web/Dockerfile
+    ports:
+     - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  events.api:
+    container_name: events.api
+    image: events.api:latest
+    build:
+      context: ./src
+      dockerfile: ./Events/Events.Api/Dockerfile
+    ports:
+     - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  events.grpc:
+    container_name: events.grpc
+    image: events.grpc:latest
+    build:
+      context: ./src
+      dockerfile: ./Events/Events.Grpc/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  organizations.api:
+    container_name: organizations.api
+    image: organizations.api:latest
+    build:
+      context: ./src
+      dockerfile: ./Organizations/Organizations.Api/Dockerfile
+    ports:
+     - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  organizations.grpc:
+    container_name: organizations.grpc
+    image: organizations.grpc:latest
+    build:
+      context: ./src
+      dockerfile: ./Organizations/Organizations.Grpc/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  payments.api:
+    container_name: payments.api
+    image: payments.api:latest
+    build:
+      context: ./src
+      dockerfile: ./Payments/Payments.Api/Dockerfile
+    ports:
+     - "5004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  payments.grpc:
+    container_name: payments.grpc
+    image: payments.grpc:latest
+    build:
+      context: ./src
+      dockerfile: ./Payments/Payments.Grpc/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  tickets.api:
+    container_name: tickets.api
+    image: tickets.api:latest
+    build:
+      context: ./src
+      dockerfile: ./Tickets/Tickets.Api/Dockerfile
+    ports:
+     - "5005:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  tickets.grpc:
+    container_name: tickets.grpc
+    image: tickets.grpc:latest
+    build:
+      context: ./src
+      dockerfile: ./Tickets/Tickets.Grpc/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  database:
+    container_name: database
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+
+volumes:
+  db_volume:

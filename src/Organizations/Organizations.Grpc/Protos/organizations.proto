@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Organizations.Grpc";
+
+package organizations;
+
+service Organizations {
+  rpc GetOrganizationName (GetOrganizationNameRequest) returns (GetOrganizationNameResponse);
+}
+
+message GetOrganizationNameRequest {
+  string id = 1;
+}
+
+message GetOrganizationNameResponse {
+  string name = 1;
+}

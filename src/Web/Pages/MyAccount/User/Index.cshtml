@@ -1,0 +1,25 @@
+@page
+@using Web.Interfaces
+@model IndexModel
+@inject ITokenService TokenService
+@{
+    ViewData["Title"] = "My account";
+}
+
+@{
+    var userName = TokenService.GetUserName();
+    
+    <h1 class="mb-3">@userName</h1>
+}
+
+<div class="mb-3">
+    <a asp-page="/MyAccount/User/Info">Account information</a>
+</div>
+
+<div class="mb-3">
+    <a asp-page="/MyAccount/User/Tickets">My tickets</a>
+</div>
+
+<div>
+    <a asp-page="/MyAccount/Logout">Logout</a>
+</div>

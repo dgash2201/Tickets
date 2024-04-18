@@ -1,0 +1,37 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+        <strong>@Model.ErrorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="post" class="mb-3">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Login">Login</label>
+        <input type="text" class="form-control" asp-for="Login" />
+        <span class="text-danger" asp-validation-for="Login"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label" asp-for="Password">Password</label>
+        <input type="password" class="form-control" asp-for="Password" />
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    
+    <div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+
+<div>
+    <a asp-area="" asp-page="/Auth/RegisterUser">Register</a>
+</div>

@@ -1,0 +1,43 @@
+﻿@page
+@model Web.Pages.MyAccount.Organization.AddEvent
+@{
+    ViewData["Title"] = "Add event";
+}
+
+<div class="row mt-5">
+    <p class="fs-4">
+        Add event
+    </p>
+</div>
+
+<form method="post" class="mb-3" enctype="multipart/form-data">
+    
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" name="title"/>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" name="description"></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-control" name="date"/>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">File</label>
+        <input type="file" class="form-control" name="file"/>
+    </div>
+    
+    <div class="mb-3">
+        <input type="hidden" class="form-control" name="organizationId" value="@Model.OrganizationId"/>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+

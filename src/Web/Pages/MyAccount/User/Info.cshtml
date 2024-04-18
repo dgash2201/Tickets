@@ -1,0 +1,22 @@
+@page
+@model InfoModel
+@{
+    ViewData["Title"] = "Account information";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+
+<div>
+    @if (Model.UserDto is not null)
+    {
+        <div class="mb-3">
+            <label class="form-label" asp-for="UserDto!.Login">Login</label>
+            <input type="text" class="form-control" asp-for="UserDto!.Login" readonly/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="UserDto!.Name">Name</label>
+            <input type="text" class="form-control" asp-for="UserDto!.Name" readonly/>
+        </div>
+    }
+</div>

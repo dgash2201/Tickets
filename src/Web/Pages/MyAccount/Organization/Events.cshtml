@@ -1,0 +1,36 @@
+@page
+@model EventsModel
+@{
+    ViewData["Title"] = "My events";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+
+<div class="mb-3">
+    <a class="btn btn-primary" asp-page="/MyAccount/Organization/AddEvent">Add event</a>
+</div>
+
+<div>
+    @foreach (var _event in Model.Events)
+    {
+        <div class="row mt-4">
+            <div class="col-2">
+                <img src="/@_event.ImageName" class="rounded float-start" style="width: 200px; height: 200px; object-fit: cover" alt="">
+            </div>
+            
+            <div class="col-10">
+                <div class="fs-4 fw-bold">
+                    <p>@_event.Title</p>
+                </div>
+                
+                <div class="fs-6">
+                    <p class="text-break">@_event.Description</p>
+                </div>
+                
+                <div class="fs-6">
+                    <p>@_event.Date</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
